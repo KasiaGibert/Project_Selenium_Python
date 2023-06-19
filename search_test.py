@@ -41,10 +41,20 @@ class SearchTest(unittest.TestCase):
         URL = self.driver.current_url
         self.assertEqual("https://www.taniaksiazka.pl/Szukaj/q-sapiens", URL,"Incorrect URL")
         # 6. Pobranie nazw ksiazek z wynikow wyszukiwania
-        books = self.driver.find_elements(By.XPATH, "//div[contains(@class, 'product-main-top-info')]//h2/a")
+        #books = self.driver.find_elements(By.XPATH, "//div[contains(@class, 'product-main-top-info')]//h2/a")
+        books = self.driver.find_elements(By.XPATH, "//a[contains(@class, 'ecommerce-datalayer product-title ')]")
         books_name = [book.get_attribute("textContent") for book in books]
         for name in books_name:
             print("Book name:" + name)
+        # 7. Pobieranie cen ksiazek z wynikow wyszukiwania
+        prices = self.driver.find_elements(By.XPATH, "//span[contains(@class, 'product-price')]")
+        price_values = [price.get_attribute("textContent") for price in prices]
+        for price in price_values:
+            print("Price:" + price)
+        # 8. Sprawdzanie pierwszych 3 cen hoteli
+        assert price_values[0] == "28,07 zł"
+        assert price_values[1] == "38,93 zł"
+        assert price_values[2] == "29,21 zł"
 
     def tearDown(self):
         self.driver.quit()
