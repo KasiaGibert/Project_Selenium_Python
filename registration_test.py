@@ -119,5 +119,6 @@ class NewUserRegistration(unittest.TestCase):
         checkbox_error_location = self.driver.find_element(checkbox_error_locator)
         # b) Sprawdzam, czy element wyszukany na oba sposoby to w istocie ten sam element
         self.assertEqual(checkbox_error[0].id, checkbox_error_location.id)
+
     def tearDown(self):
         self.driver.quit()
