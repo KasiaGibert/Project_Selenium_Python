@@ -110,15 +110,13 @@ class NewUserRegistration(unittest.TestCase):
         # 2. Sprawdzam, czy jest jeden taki komunikat
         self.assertEqual(1, len(checkbox_error))
         # 3. Sprawdzam poprawność tresci komunikatu i jego widoczność
+        #self.assertEqual("To pole jest wymagane", checkbox_error[0].text, "Komunikat o błędzie ma niepoprawną treść")
         self.assertEqual("To pole jest wymagane", checkbox_error[0].text, "Komunikat o błędzie ma niepoprawną treść")
-
         # 4. Sprawdzam położenie tego napisu
         # a) Ponownie szukam tego elementu względem pola drugiego checkboxa
-        #checkbox_error_locator = locate_with(By.XPATH, '//em[contains(@class="error")]/span').near({By.XPATH: '//div[contains(@class="input-line checkbox with-more-button")]//b'})
         checkbox_error_locator = locate_with(By.XPATH, '//em[contains(@class="error")]/span').near({By.ID: 'registerNewsletter'})
         checkbox_error_location = self.driver.find_element(checkbox_error_locator)
         # b) Sprawdzam, czy element wyszukany na oba sposoby to w istocie ten sam element
         self.assertEqual(checkbox_error[0].id, checkbox_error_location.id)
-
     def tearDown(self):
         self.driver.quit()
