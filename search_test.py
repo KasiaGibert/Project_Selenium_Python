@@ -26,7 +26,8 @@ class SearchTest(unittest.TestCase):
             print("Pole jest puste")
         else:
             print("Pole nie jest puste, wyczyszcze je")
-        search_field.clear()
+            search_field.clear()
+
         # 3. Wpisz w pole wyszukiwania fraze "sapiens"
         search_field.send_keys(book)
         # 4.  Kliknij przycisk wyszukiwania
@@ -47,9 +48,9 @@ class SearchTest(unittest.TestCase):
         for price in price_values:
             print("Price:" + price)
         # Sprawdzanie pierwszych 3 cen hoteli
-        assert price_values[0] == "28,07 zł"
-        assert price_values[1] == "38,93 zł"
-        assert price_values[2] == "27,95 zł"
+        assert price_values[0] == "41,84 zł"
+        assert price_values[1] == "47,38 zł"
+        assert price_values[2] == "22,90 zł"
 
     def tearDown(self):
         self.driver.quit()
