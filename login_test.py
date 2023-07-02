@@ -57,7 +57,7 @@ class LoginTest(unittest.TestCase):
 
         # Testy sprawdzajace poprawność adresu URL
         URL = self.driver.current_url
-        self.assertEqual("https://www.taniaksiazka.pl/Konto", URL, "Incorrect URL")
+        self.assertEqual("https://www.taniaksiazka.pl/Logowanie", URL, "Incorrect URL")
 
     def tearDown(self):
         self.driver.quit()
