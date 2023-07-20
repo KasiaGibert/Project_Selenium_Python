@@ -74,7 +74,7 @@ class NewUserRegistration(unittest.TestCase):
         # b) Sprawdzam, czy element wyszukany na oba sposoby to w istocie ten sam element
         self.assertEqual(password_error[0].id, password_error_location.id)
 
-    def testNoChecbox(self):
+    def testNoCheckbox(self):
         """ Rejestracja nowego uzytkownika w przypadku nie zaznaczenia checkboxa """
 
         # 1. Kliknij przycisk „Zaloguj sie”
