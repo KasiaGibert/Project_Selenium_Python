@@ -1,3 +1,4 @@
+import self as self
 from selenium.webdriver.common.by import By
 
 
@@ -11,9 +12,9 @@ class SearchBooksPage:
     def set_books(self, books):
         self.driver.find_element(By.ID, self.search_field_id)
         self.driver.find_element(By.ID, self.search_field_id).clear()
-        self.driver.find_element(By.ID, self.search_field_id).send_keys(books)
+        self.driver.find_element(By.ID, self.search_field_id).send_keys("sapiens")
 
 
-    def perform_search(self:
+    def perform_search(self):
         self.driver.find_element(By.XPATH, self.search_button_xpath)
         self.driver.find_element(By.XPATH, self.search_button_xpath).submit()
